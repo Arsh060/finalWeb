@@ -10,6 +10,7 @@ import { CollegeInfoComponent } from './college-info/college-info.component';
 
 // Services
 import { CollegeDataService } from './college-data.service';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CollegeDataService } from './college-data.service';
     HeaderComponent
   ],
   providers: [
-    CollegeDataService
+    CollegeDataService,
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })

@@ -7,14 +7,21 @@ import { CollegeDataService } from '../college-data.service';
   styleUrls: ['./college-info.component.css']
 })
 export class CollegeInfoComponent implements OnInit {
-  collegeData: any;
-  imageUrl = './assets/images/sheridan.png';
+  collegeData: any = {
+    name: 'Default College Name',
+    type: 'N/A',
+    established: 'N/A',
+    location: 'N/A',
+    students: {fullTime: 'N/A', partTime: 'N/A'},
+    image: 'sheridan.png'
+  };
+  imageUrl = 'assets/images/';
 
   constructor(private collegeDataService: CollegeDataService) { }
 
   ngOnInit() {
     this.collegeDataService.getCollegeData().subscribe(data => {
-      this.collegeData = data;
+      this.collegeData = {...this.collegeData, ...data};
     });
   }
 }
