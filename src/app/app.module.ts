@@ -1,18 +1,31 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
-import { AppRoutingModule } from './app-routing.module';
+// Components
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { CollegeInfoComponent } from './college-info/college-info.component';
+
+// Services
+import { CollegeDataService } from './college-data.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FooterComponent,
+    CollegeInfoComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    HeaderComponent,
+    HeaderComponent
   ],
-  providers: [],
+  providers: [
+    CollegeDataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
